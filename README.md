@@ -1,38 +1,7 @@
-# create-svelte
+# shortstack - a link shortening service to minify stacks of links!
+As someone who shares a lot of links in discord and clutters up chats, I felt like making a quick and easy little link shortener. It's VERY barebones, but at the very least users are able to add links to a "stack"
+and share that stack with the world.
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
-
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+I also thought it'd be very funny to make it have a pancake theme because pancakes are served in stacks or some shit.
+![image](https://github.com/UnitedPuggs/shortstack/assets/48199805/6b4d0e67-c9b6-42fb-b4a2-bde605bcadb7)
+![image](https://github.com/UnitedPuggs/shortstack/assets/48199805/08eb3d12-98f0-4eb4-abcf-270e6a6034c3)
