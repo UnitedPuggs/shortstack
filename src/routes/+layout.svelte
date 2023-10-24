@@ -4,6 +4,6 @@
 </script>
 
 <Navbar />
-<body class="bg-gray-200 p-2">
+<body class="bg-amber-200 p-2">
     <slot />
 </body>
