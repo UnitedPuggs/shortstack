@@ -8,6 +8,10 @@
     let split_header = header.split("");
 </script>
 
+<svelte:head>
+    <title>{$page.data.session?.user.email}'s links</title>
+</svelte:head>
+
 {#if $page.data.session?.user}
 <div class="flex flex-col gap-2 justify-center items-center mt-8">
     <div class="flex mb-4">
