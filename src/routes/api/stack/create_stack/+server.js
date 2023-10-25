@@ -2,14 +2,14 @@ import { supabase } from '$lib/supabase';
 import { generate } from 'random-words';
 
 export async function POST({ request }) {
-    const { links } = await request.json();
+    const { links, stack_name } = await request.json();
 
     let words = generate({ exactly: 3 })
     const id = words.join("-")
 
     const { data, error } = await supabase
     .from('links')
-    .insert([{ id: id, links: links }])
+    .insert([{ id: id, links: links, stack_name: stack_name }])
     .select()
 
     if(error)

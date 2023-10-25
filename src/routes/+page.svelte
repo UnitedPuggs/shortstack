@@ -1,8 +1,9 @@
 <script>
     import { goto } from '$app/navigation'
 
-    let links = [];
+    $: links = [];
     let link;
+    let stack_name;
     let link_slug;
 
     async function add_link() {
@@ -17,7 +18,7 @@
         if(links.length > 0) {
             await fetch('/api/stack/create_stack', {
                 method: "POST",
-                body: JSON.stringify({links: links}),
+                body: JSON.stringify({links: links, stack_name: stack_name}),
             })
             .then(res => res.json())
             .then(res => {
@@ -25,12 +26,18 @@
                 link_slug = link_slug
             })
             goto(`/${link_slug}`)
+        } else {
+            alert("No links found!")
         }
+    }
+
+    async function remove_from_stack(link) {
+        links = links.filter(rem => rem !== link);
     }
 </script>
 
 <svelte:head>
-    <title>shortstack 🥞</title>
+    <title>shortstack 🥞 | share stacks of links!</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="A place to shorten (many) links!">
@@ -46,7 +53,8 @@
 </svelte:head>
 
 <div class="flex flex-col justify-center items-center mt-24">
-    <input type="text" placeholder="put your link here!" class="rounded-lg px-1 py-1 w-56 md:w-96 border border-gray-300" bind:value={link}>
+    <input type="text" placeholder="put your link here!" class="rounded-lg p-1 w-56 md:w-96 border border-gray-300" bind:value={link}>
+    <input type="text" placeholder="(optional) name your stack!" class="md:w-[14rem] rounded-full px-2 py-1 mt-2 border border-gray-400" bind:value={stack_name}>
     <div class="flex flex-col md:flex-row gap-2 mb-2 mt-2">
         <button class="border-2 border-amber-500 bg-black text-white p-2 rounded-full font-bold transition ease-in-out hover:scale-110" on:click={add_link}>add link</button>
         <button class="border-2 border-amber-500 bg-black text-white py-2 px-3 rounded-full font-bold transition ease-in-out hover:scale-110" on:click={create_stack}>stack!</button>
@@ -54,8 +62,9 @@
     {#if links.length > 0}
     <div class="flex flex-col gap-2 ml-2 border-2 bg-amber-300 border-amber-500 p-3 rounded-lg max-h-[calc(100vh-300px)] overflow-y-auto">
         {#each links as link}
-            <div class="rounded-lg bg-white text-black font-bold w-56 md:w-96 px-1 py-0.5 break-all border border-black drop-shadow-lg">
-                {link}
+            <div class="flex flex-row rounded-lg bg-white text-black font-bold w-56 md:w-96 px-1 py-0.5 break-all border border-black drop-shadow-lg">
+                <span>{link}</span>
+                <button class="ml-auto mr-0 transition ease-in-out hover:scale-105" on:click={() => remove_from_stack(link)}>🚫</button>
             </div>
         {/each}
     </div>
