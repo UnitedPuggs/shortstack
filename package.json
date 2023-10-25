@@ -26,6 +26,8 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@auth/core": "^0.18.0",
+		"@auth/sveltekit": "^0.3.11",
 		"@supabase/supabase-js": "^2.38.2",
 		"random-words": "^2.0.0"
 	}
