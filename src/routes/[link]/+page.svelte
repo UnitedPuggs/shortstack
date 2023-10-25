@@ -15,7 +15,11 @@
 <div class="flex justify-center items-center">
 {#if split_name}
     {#each split_name as char}
-        <span class="text-3xl font-bold text-center mt-8 transition-all inline-block ease-out delay-0 duration-[300ms] hover:-translate-y-3 after:translate-y-0">{char}</span>
+        {#if char != " "}
+            <span class="text-3xl font-bold text-center mt-8 transition-all inline-block ease-out delay-0 duration-[300ms] hover:-translate-y-3 after:translate-y-0">{char}</span>
+        {:else}
+            <span>&nbsp;</span>
+        {/if}
     {/each}
 {/if}
 </div>
