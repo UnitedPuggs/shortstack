@@ -6,7 +6,7 @@ export async function load({ locals }) {
     let { data: links, error } = await supabase
     .from('links')
     .select('id')
-    .eq('created_by', session.user.email);
+    .eq('created_by', session?.user.email);
 
     if(error)
         return { load: error }
