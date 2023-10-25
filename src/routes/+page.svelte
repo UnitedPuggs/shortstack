@@ -10,7 +10,7 @@
 
     $: links = [];
     let link;
-    let stack_name;
+    let stack_name = "";
     let link_slug;
 
     async function add_link() {
