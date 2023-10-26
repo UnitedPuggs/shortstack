@@ -2,11 +2,9 @@
     import { goto } from '$app/navigation'
     import { page } from '$app/stores'
 
-    let user_email;
+    let user_email = null;
     if($page.data.session?.user)
         user_email = $page.data.session.user.email;
-    else 
-        user_email = null;
 
     $: links = [];
     let link;
