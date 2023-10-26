@@ -2,6 +2,9 @@
     import { goto } from '$app/navigation'
     import { page } from '$app/stores'
 
+    let user_email = null;
+    if($page.data.session?.user)
+        user_email = $page.data.session.user.email;
 
     $: links = [];
     let link;
@@ -20,7 +23,7 @@
         if(links.length > 0) {
             await fetch('/api/stack/create_stack', {
                 method: "POST",
-                body: JSON.stringify({links: links, stack_name: stack_name}),
+                body: JSON.stringify({links: links, stack_name: stack_name, created_by: user_email}),
             })
             .then(res => res.json())
             .then(res => {
