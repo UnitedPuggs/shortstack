@@ -50,10 +50,10 @@
     <meta name="author" content="Eddie Poulson">
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">
-    <meta name="og:title" content="shortstack | Shorten URLs">
-    <meta name="og:description" content="Shorten and manage URLs with our link shortening service. Create (many) custom shortened links!">
-    <meta name="og:image" content="https://www.shortstack-xi.vercel.app/assets/pancake.png">
-    <meta name="og:url" content="https://www.shortstack-xi.vercel.app">
+    <meta name="og:title" content="shortstack | shorten URLs">
+    <meta name="og:description" content="shorten and manage URLs with our link shortening service. create (many) custom shortened links!">
+    <meta name="og:image" content="https://www.shortstack.link/assets/pancake.png">
+    <meta name="og:url" content="https://www.shortstack.link">
     <meta name="og:type" content="website">
 </svelte:head>
 
