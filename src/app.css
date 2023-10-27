@@ -6,4 +6,12 @@
     .box-shadow {
         box-shadow: 5px 5px 0px black;
     }
+
+    .tooltip {
+        @apply invisible absolute
+    }
+
+    .has-tooltip:hover .tooltip {
+        @apply visible z-50
+    }
 }

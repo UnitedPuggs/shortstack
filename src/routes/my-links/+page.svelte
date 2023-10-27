@@ -24,10 +24,13 @@
     {/each}
     </div>
     {#if my_links.length > 0}
-        {#each my_links as link}
+        {#each my_links as link, i}
             <a href="/{link.id}" 
             class="text-xl font-semibold border-2 border-black p-2 rounded-lg bg-white transition-all ease-in duration-75 hover:opacity-75 break-all w-64 md:w-96 text-center"
             >
+            {#if my_links[i].stack_name}
+                <h1 class="font-bold">{my_links[i].stack_name}</h1>
+            {/if}
                 shortstack.link/{link.id}
             </a>
         {/each}
