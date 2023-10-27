@@ -7,13 +7,6 @@
     if(data.links[0].stack_name)
         split_name = data.links[0].stack_name.split("")
 
-    async function test() {
-        const url = "https://shortstack.link"
-        const res = await fetch(url)
-        const desc = await res.text();
-
-        console.log(desc)
-    }
 </script>
 
 <svelte:head>
@@ -21,7 +14,6 @@
 </svelte:head>
 
 <div class="flex justify-center items-center">
-<button on:click={test}>test</button>
 {#if split_name}
     {#each split_name as char}
         {#if char != " "}
@@ -33,9 +25,15 @@
 {/if}
 </div>
 <div class="flex flex-col gap-2 justify-center items-center mt-4 border-2 bg-amber-300 border-amber-500 w-fit mx-auto p-2 rounded-lg">
-    {#each links.links as link}
-        <a href={link} target="_blank" class="rounded-lg bg-white text-black font-bold w-56 md:w-96 px-1 py-0.5 break-all border border-black hover:opacity-75 max-h-32 overflow-hidden">
+    {#each links.links as link, i}
+    <div class="has-tooltip w-56 md:w-96 max-h-32 rounded-lg bg-white text-black font-bold border border-black px-1 py-0.5 overflow-hidden">
+        <section class="tooltip border-2 border-black rounded-lg p-2 bg-white max-w-lg whitespace-pre-wrap ml-96">
+            <span>{links.metadata[i].description}</span>
+            <img src={links.metadata[i].image} alt="meow" class="rounded-lg border-2 border-black drop-shadow-lg">
+        </section>
+        <a href={link} target="_blank" class="break-all hover:opacity-75">
             {link}
         </a>
+    </div>
     {/each}
 </div>
