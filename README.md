@@ -3,5 +3,7 @@ As someone who shares a lot of links in discord and clutters up chats, I felt li
 and share that stack with the world.
 
 I also thought it'd be very funny to make it have a pancake theme because pancakes are served in stacks or some shit.
-![image](https://github.com/UnitedPuggs/shortstack/assets/48199805/6b4d0e67-c9b6-42fb-b4a2-bde605bcadb7)
-![image](https://github.com/UnitedPuggs/shortstack/assets/48199805/08eb3d12-98f0-4eb4-abcf-270e6a6034c3)
+![image](https://github.com/UnitedPuggs/shortstack/assets/48199805/27c7db58-748d-4e44-b810-eb1e6eb32313)
+![image](https://github.com/UnitedPuggs/shortstack/assets/48199805/e90a27bf-d221-49b0-bca9-891c0f6626da)
+![funnitext](https://github.com/UnitedPuggs/shortstack/assets/48199805/4c1d05ef-2807-4aff-ada6-b3365bed188b)
+![image](https://github.com/UnitedPuggs/shortstack/assets/48199805/884e51c5-2fc2-47ed-a19a-72d2544d9e5d)
