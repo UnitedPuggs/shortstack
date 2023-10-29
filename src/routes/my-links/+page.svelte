@@ -1,5 +1,6 @@
 <script>
     import { page } from '$app/stores'
+    import { invalidateAll } from '$app/navigation'
     export let data;
 
     $: my_links = data.links;
@@ -7,8 +8,12 @@
     const header = "your links";
     let split_header = header.split("");
 
-    async function delete_stack() {
-        
+    async function delete_stack(id) {
+        await fetch('/api/stack/delete_stack', {
+            method: "DELETE",
+            body: JSON.stringify({ id: id })
+        })
+        invalidateAll();
     }
 </script>
 
@@ -38,7 +43,7 @@
                 {/if}
                     shortstack.link/{link.id}
                 </a>
-                <button class="text-lg transition ease-in-out hover:scale-105">🚫</button>
+                <button class="text-lg transition ease-in-out hover:scale-105" on:click={() => delete_stack(link.id)}>🚫</button>
             </div>
         {/each}
     {:else}
