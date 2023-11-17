@@ -29,8 +29,12 @@
         <a href={link} target="_blank" class="break-all hover:opacity-75">
             <div class="has-tooltip w-56 lg:w-96 max-h-32 rounded-lg bg-white text-black font-bold border border-black px-1 py-0.5 overflow-hidden">
                 <section class="tooltip border-2 border-black rounded-lg p-2 bg-white max-w-lg whitespace-pre-wrap ml-96">
-                    <span>{links.metadata[i].description}</span>
-                    <img src={links.metadata[i].image} alt="meow" class="rounded-lg border-2 border-black drop-shadow-lg">
+                {#await data.streamed.metadata}
+                    <span>loading</span>
+                {:then metadata}
+                    <span>{metadata[i].description}</span>
+                    <img src={metadata[i].image} alt="meow" class="rounded-lg border-2 border-black drop-shadow-lg">
+                {/await}
                 </section>
                 {link}
             </div>
