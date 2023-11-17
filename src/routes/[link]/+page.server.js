@@ -9,18 +9,22 @@ export async function load({ fetch, params }) {
 
     links[0].metadata = []
 
-    const metadata = await Promise.all(links[0].links.map(async metadata => {
-        const res = await fetch("/api/metadata/scrape", {
-            method: "POST",
-            body: JSON.stringify({ scraped_url: metadata })
-        })
-        return res.json()
-    }))
+    //this is some of the stupidest shit I've done, but it works
+    //issue with fetch being dumb
+    async function get_metadata() {
+        const metadata = await Promise.all(links[0].links.map(async metadata => {
+            const res = await fetch("/api/metadata/scrape", {
+                method: "POST",
+                body: JSON.stringify({ scraped_url: metadata })
+            })
+            return res.json()
+        }))
+        return metadata;
+    }
 
-    links[0].metadata = metadata;
 
     if(error)
         return { load: error }
     else
-        return { links: links }
+        return { links, streamed: { metadata: get_metadata()} }
 }
